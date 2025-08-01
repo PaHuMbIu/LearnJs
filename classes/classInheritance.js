@@ -4,73 +4,73 @@
  * Новый класс расширяет функциональность старого, добавляя свои свойства и методы.
  */
 
-// class Animal {
-//     constructor(name) {
-//         this.name = name;
-//     }
-//
-//     speak() {
-//         console.log(`${this.name} издаёт звук.`);
-//     }
-// }
-//
-// class Dog extends Animal {
-//     bark() {
-//         console.log(`${this.name} лает.`);
-//     }
-// }
-//
-// const dog = new Dog("Шарик");
-// dog.speak(); // Шарик издаёт звук.
-// dog.bark();  // Шарик лает.
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(`${this.name} издаёт звук.`);
+    }
+}
+
+class Dog extends Animal {
+    bark() {
+        console.log(`${this.name} лает.`);
+    }
+}
+
+const dog = new Dog("Шарик");
+dog.speak(); // Шарик издаёт звук.
+dog.bark();  // Шарик лает.
 
 // 🧠 Что делает super?
 /**
  * super — это способ обратиться к родительскому классу:
  */
 
-// class Animal {
-//     constructor(name) {
-//         this.name = name;
-//     }
-// }
-//
-// class Rabbit extends Animal {
-//     constructor(name, color) {
-//         super(name); // вызывает родительский constructor
-//         this.color = color;
-//     }
-// }
-//
-// const rabbit = new Rabbit("Кролик", "белый");
-// console.log(rabbit.name);  // Кролик
-// console.log(rabbit.color); // белый
+class Animal1 {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+class Rabbit extends Animal1 {
+    constructor(name, color) {
+        super(name); // вызывает родительский constructor
+        this.color = color;
+    }
+}
+
+const rabbit = new Rabbit("Кролик", "белый");
+console.log(rabbit.name);  // Кролик
+console.log(rabbit.color); // белый
 
 /**
  * В конструкторе обязательно вызывать super(...), если класс расширяет другой.
  * Нельзя использовать this, пока не вызван super(...).
  */
 
-// class Animal {
-//     constructor(name) {
-//         this.name = name;
-//     };
-//
-//     speak() {
-//         console.log(`${this.name} молчит...`);
-//     }
-// }
-//
-// class Cat extends Animal {
-//     speak() {
-//         super.speak(); // вызов метода родителя
-//         console.log(`${this.name} мяукает.`);
-//         // Поведение, словно в здесь 2 console.log, молчит и мяукает
-//     }
-// }
-//
-// const cat = new Cat("Мурка");
-// cat.speak();
+class Animal2 {
+    constructor(name) {
+        this.name = name;
+    };
+
+    speak() {
+        console.log(`${this.name} молчит...`);
+    }
+}
+
+class Cat extends Animal2 {
+    speak() {
+        super.speak(); // вызов метода родителя
+        console.log(`${this.name} мяукает.`);
+        // Поведение, словно в здесь 2 console.log, молчит и мяукает
+    }
+}
+
+const cat = new Cat("Мурка");
+cat.speak();
 // Мурка молчит...
 // Мурка мяукает.
 
@@ -83,20 +83,20 @@
  *  new Child(...) → вызывает constructor родителя → потом constructor потомка
  */
 
-// class A {
-//     method() {
-//         console.log("A");
-//     }
-// }
-//
-// class B extends A {
-//     method() {
-//         super.method(); // вызывает метод из A
-//         console.log("B");
-//     }
-// }
-//
-// new B().method();
+class A {
+    method() {
+        console.log("A");
+    }
+}
+
+class B extends A {
+    method() {
+        super.method(); // вызывает метод из A
+        console.log("B");
+    }
+}
+
+new B().method();
 // A
 // B
 
@@ -187,7 +187,3 @@
 // const clock = new ExtendedClock({ template: 'h:m:s', precision: 1000 });
 // console.log(clock)
 // clock.start();
-
-/**
- * Not solved
- */

@@ -3,17 +3,17 @@
  * Класс — это шаблон для создания объектов, задаёт начальные свойства через constructor и методы внутри тела класса
  */
 
-// class User {
-//     constructor(name) {
-//         this.name = name;
-//     }
-//     sayHi() {
-//         console.log(this.name);
-//     }
-// }
-//
-// const user = new User("Иван");
-// user.sayHi(); // Иван
+class User1 {
+    constructor(name) {
+        this.name = name;
+    }
+    sayHi() {
+        console.log(this.name);
+    }
+}
+
+const user = new User1("Иван");
+user.sayHi(); // Иван
 
 /**
  * Под капотом это обычная функция-конструктор:
@@ -28,12 +28,12 @@
  * Класс — это более удобный способ описания конструктора и методов:
  */
 
-// function User(name) {
-//     this.name = name;
-// }
-// User.prototype.sayHi = function() {
-//     console.log(this.name);
-// };
+function User(name) {
+    this.name = name;
+}
+User.prototype.sayHi = function() {
+    console.log(this.name);
+};
 
 /**
  * Обе конструкции создают похожую структуру, но class:
@@ -85,7 +85,3 @@
 // let clock = new Clock({template: 'h:m:s'});
 // console.log(clock)
 // clock.start();
-
-/**
- * Not solved
- */
