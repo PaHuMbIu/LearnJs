@@ -1,38 +1,38 @@
 // 🧩 Метод Object.keys(obj) возвращает массив всех ключей объекта obj
-// const user = {
-//     name: "Анна",
-//     age: 25,
-//     city: "Страсбург"
-// };
-// console.log(Object.keys(user)); // ["name", "age", "city"]
+const user = {
+    name: "Анна",
+    age: 25,
+    city: "Страсбург"
+};
+console.log(Object.keys(user)); // ["name", "age", "city"]
 
 // 🎯 Метод Object.values(obj) возвращает массив всех значений объекта obj
-// const user = {
-//     name: "Анна",
-//     age: 25,
-//     city: "Страсбург"
-// };
-// console.log(Object.values(user)); // ["Анна", 25, "Страсбург"]
+const user = {
+    name: "Анна",
+    age: 25,
+    city: "Страсбург"
+};
+console.log(Object.values(user)); // ["Анна", 25, "Страсбург"]
 
 // 🔁 Метод Object.entries(obj) возвращает массив пар [ключ, значение] объекта obj
-// const user = {
-//     name: "Анна",
-//     age: 25,
-//     city: "Страсбург"
-// };
-// console.log(Object.entries(user));
+const user = {
+    name: "Анна",
+    age: 25,
+    city: "Страсбург"
+};
+console.log(Object.entries(user));
 // [["name", "Анна"], ["age", 25], ["city", "Страсбург"]]
 
 // 🔄 Применение в цикле
-// const user = {
-//     name: "Анна",
-//     age: 25,
-//     city: "Страсбург"
-// };
-//
-// for (const [key, value] of Object.entries(user)) {
-//     console.log(`${key}: ${value}`);
-// }
+const user = {
+    name: "Анна",
+    age: 25,
+    city: "Страсбург"
+};
+
+for (const [key, value] of Object.entries(user)) {
+    console.log(`${key}: ${value}`);
+}
 // Вывод:
 // name: Анна
 // age: 25

@@ -42,6 +42,16 @@ class Rabbit extends Animal1 {
     }
 }
 
+class A {
+    constructor() {
+        this.sayHi = function() {
+            console.log('Привет от A');
+        };
+    }
+}
+
+
+
 const rabbit = new Rabbit("Кролик", "белый");
 console.log(rabbit.name);  // Кролик
 console.log(rabbit.color); // белый

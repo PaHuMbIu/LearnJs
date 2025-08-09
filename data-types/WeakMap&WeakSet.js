@@ -16,35 +16,35 @@
  * WeakMap позволяет ассоциировать данные с объектами без риска утечки памяти. Пример:
  */
 
-// const weakMap = new WeakMap();
-//
-// let user = { name: "Alice" };
-// weakMap.set(user, "Приватные данные");
-//
-// console.log(weakMap.get(user)); // "Приватные данные"
-//
-// user = null; // Объект больше не доступен, его можно удалить из памяти
+const weakMap = new WeakMap();
+
+let user = { name: "Alice" };
+weakMap.set(user, "Приватные данные");
+
+console.log(weakMap.get(user)); // "Приватные данные"
+
+user = null; // Объект больше не доступен, его можно удалить из памяти
 
 // ✅ WeakSet — отслеживание состояния объектов
 /**
  * WeakSet используется для хранения уникальных объектов. Пример:
  */
 
-// const messages = [
-//     { text: "Hello", from: "John" },
-//     { text: "How goes?", from: "John" },
-//     { text: "See you soon", from: "Alice" }
-// ];
-//
-// let readMessages = new WeakSet();
-//
-// // Отметим первое сообщение как прочитанное
-// readMessages.add(messages[0]);
-//
-// console.log(readMessages.has(messages[0])); // true
-//
-// // Если сообщение удаляется из массива, оно также удаляется из WeakSet
-// messages.shift();
+const messages = [
+    { text: "Hello", from: "John" },
+    { text: "How goes?", from: "John" },
+    { text: "See you soon", from: "Alice" }
+];
+
+let readMessages = new WeakSet();
+
+// Отметим первое сообщение как прочитанное
+readMessages.add(messages[0]);
+
+console.log(readMessages.has(messages[0])); // true
+
+// Если сообщение удаляется из массива, оно также удаляется из WeakSet
+messages.shift();
 
 // ⚠️ Ограничения
 /**

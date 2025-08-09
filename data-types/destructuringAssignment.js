@@ -4,34 +4,34 @@
  */
 
 // Деструктуризация массивов
-// const arr = ["Анна", "Иванова"];
-// const [firstName, lastName] = arr;
-//
-// console.log(firstName) // Анна
-// console.log(lastName) // lastName
+const arr = ["Анна", "Иванова"];
+const [firstName, lastName] = arr;
+
+console.log(firstName) // Анна
+console.log(lastName) // lastName
 // Теперь firstName будет "Анна", а lastName — "Иванова".
 
 // Пропуск элементов
-// const [firstName, , title] = ["Юлий", "Цезарь", "Император"];
-// console.log(firstName);
-// console.log(title);
+const [firstName, , title] = ["Юлий", "Цезарь", "Император"];
+console.log(firstName);
+console.log(title);
 
 // Остаточные элементы
-// const [firstName, ...rest] = ["Юлий", "Цезарь", "Император", "Рима"];
-// console.log(rest); // ["Цезарь", "Император", "Рима"]
+const [firstName, ...rest] = ["Юлий", "Цезарь", "Император", "Рима"];
+console.log(rest); // ["Цезарь", "Император", "Рима"]
 
 // Деструктуризация объектов
-// const user = {
-//     name: "Анна",
-//     age: 25
-// };
-// const { name, age } = user;
+const user = {
+    name: "Анна",
+    age: 25
+};
+const { name, age } = user;
 
 // Деструктуризация в функциях
-// function greet({ name, age }) {
-//     console.log(`Привет, ${name}. Тебе ${age} лет.`);
-// }
-// greet({ name: "Анна", age: 25 });
+function greet({ name, age }) {
+    console.log(`Привет, ${name}. Тебе ${age} лет.`);
+}
+greet({ name: "Анна", age: 25 });
 
 //====================================================================================================================//
 /**

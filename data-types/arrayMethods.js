@@ -10,121 +10,121 @@
  * Перебирает массив, вызывает функцию для каждого элемента.
  * Ничего не возвращает (undefined).
  */
-// let users = ["Иван", "Оля", "Петя"];
-// users.forEach(function(user, index, array) {
-//     console.log(`${index}: ${user}`); // Выводит индекс и имя
-// });
+let users = ["Иван", "Оля", "Петя"];
+users.forEach(function(user, index, array) {
+    console.log(`${index}: ${user}`); // Выводит индекс и имя
+});
 
 // 🔹 arr.map(callback)
 /**
  * Применяет функцию к каждому элементу и возвращает новый массив с результатами.
  */
-// let lengths = users.map(user => user.length);
-// console.log(lengths); // [4, 3, 4]
+let lengths = users.map(user => user.length);
+console.log(lengths); // [4, 3, 4]
 
 // 🔹 arr.filter(callback)
 /**
  * Возвращает новый массив только с теми элементами, для которых функция вернула true.
  */
-// let longNames = users.filter(user => user.length > 3);
-// console.log(longNames); // ["Иван", "Петя"]
+let longNames = users.filter(user => user.length > 3);
+console.log(longNames); // ["Иван", "Петя"]
 
 // 🔹 arr.find(callback)
 /**
  * Ищет первый элемент, удовлетворяющий условию, и возвращает его. Если не найдено — undefined.
  */
-// let found = users.find(user => user.startsWith("П"));
-// console.log(found); // "Петя"
+let found = users.find(user => user.startsWith("П"));
+console.log(found); // "Петя"
 
 // 🔹 arr.findIndex(callback)
 /**
  * Как find, но возвращает индекс элемента, а не сам элемент. Если не найдено — -1.
  */
-// let foundIndex = users.findIndex(user => user === "Оля");
-// console.log(foundIndex); // 1
+let foundIndex = users.findIndex(user => user === "Оля");
+console.log(foundIndex); // 1
 
 // 🔹 arr.indexOf(item), arr.lastIndexOf(item)
 /**
  * Ищут элемент по значению. indexOf — с начала, lastIndexOf — с конца.
  * Возвращают индекс элемента или -1, если не найден.
  */
-// let fruits = ["яблоко", "банан", "груша", "яблоко"];
-// console.log(fruits.indexOf("яблоко")); // 0
-// console.log(fruits.lastIndexOf("яблоко")); // 3
+let fruits = ["яблоко", "банан", "груша", "яблоко"];
+console.log(fruits.indexOf("яблоко")); // 0
+console.log(fruits.lastIndexOf("яблоко")); // 3
 
 // 🔹 arr.includes(item)
 /**
  * Проверяет, содержит ли массив элемент (сравнение по ===).
  */
-// console.log(fruits.includes("банан")); // true
+console.log(fruits.includes("банан")); // true
 
 // 🔹 arr.sort([compareFunction])
 /**
  * Сортирует элементы на месте (меняет исходный массив).
  * По умолчанию сортирует как строки.
  */
-// let numbers = [10, 5, 40, 25];
-// numbers.sort(); // [10, 25, 40, 5] — неправильно для чисел
+let numbers = [10, 5, 40, 25];
+numbers.sort(); // [10, 25, 40, 5] — неправильно для чисел
 
 // Для правильной сортировки чисел:
-// numbers.sort((a, b) => a - b); // [5, 10, 25, 40]
+numbers.sort((a, b) => a - b); // [5, 10, 25, 40]
 
 // 🔹 arr.reverse()
 /**
  * Переворачивает порядок элементов в массиве (меняет массив).
  */
-// numbers.reverse(); // [40, 25, 10, 5]
+numbers.reverse(); // [40, 25, 10, 5]
 
 // 🔹 arr.split(separator), str.join(separator)
 /**
  * split — превращает строку в массив по разделителю
  * join — объединяет массив в строку через разделитель
  */
-// let namesStr = "Иван,Оля,Петя";
-// let namesArr = namesStr.split(","); // ["Иван", "Оля", "Петя"]
-// let newStr = namesArr.join("; ");    // "Иван; Оля; Петя"
+let namesStr = "Иван,Оля,Петя";
+let namesArr = namesStr.split(","); // ["Иван", "Оля", "Петя"]
+let newStr = namesArr.join("; ");    // "Иван; Оля; Петя"
 
 // 🔹 arr.reduce(callback, initialValue)
 /**
  * Применяет функцию к аккумулятору и каждому элементу массива,
  * сводя всё к одному значению (например, сумма).
  */
-// let sum = [1, 2, 3, 4].reduce((acc, val) => acc + val, 0);
-// console.log(sum); // 10
+let sum = [1, 2, 3, 4].reduce((acc, val) => acc + val, 0);
+console.log(sum); // 10
 
 // 🔹 arr.reduceRight(callback, initialValue)
 /**
  * То же, что и reduce, но проходит массив справа налево.
  */
-// let reversedConcat = ["а", "б", "в"].reduceRight((acc, val) => acc + val);
-// console.log(reversedConcat); // "вба"
+let reversedConcat = ["а", "б", "в"].reduceRight((acc, val) => acc + val);
+console.log(reversedConcat); // "вба"
 
 // 🔹 arr.some(callback), arr.every(callback)
 /**
  * some — возвращает true, если хотя бы один элемент удовлетворяет условию.
  * every — возвращает true, если все элементы удовлетворяют.
  */
-// let hasLongName = users.some(user => user.length > 4); // false
-// let allAreStrings = users.every(user => typeof user === "string"); // true
+let hasLongName = users.some(user => user.length > 4); // false
+let allAreStrings = users.every(user => typeof user === "string"); // true
 
 // 🔹 arr.fill(value, start, end)
 /**
  * Заполняет массив значением с позиции start до end (не включая end).
  */
-// let filled = new Array(5).fill(0); // [0, 0, 0, 0, 0]
+let filled = new Array(5).fill(0); // [0, 0, 0, 0, 0]
 
 // 🔹 arr.copyWithin(target, start, end)
 /**
  * Копирует часть массива на другую позицию в этом же массиве.
  */
-// let copyArr = [1, 2, 3, 4, 5];
-// copyArr.copyWithin(0, 3); // [4, 5, 3, 4, 5]
+let copyArr = [1, 2, 3, 4, 5];
+copyArr.copyWithin(0, 3); // [4, 5, 3, 4, 5]
 
 // 🔹 Array.isArray(obj)
 /**
  * Проверяет, является ли объект массивом.
  */
-// console.log(Array.isArray(users)); // true
+console.log(Array.isArray(users)); // true
 
 // ✅ Итог
 /**
@@ -209,9 +209,6 @@
 // filterRangeInPlace(arr, 1, 4);
 // console.log(arr); // [3, 1]
 
-/**
- * Not solved
- */
 //====================================================================================================================//
 // Сортировать в порядке по убыванию
 
@@ -256,10 +253,6 @@
 //
 // console.log(calc.calculate("2 * 3"));
 // console.log(calc.calculate("3 + 7"));
-
-/**
- * Nor solved
- */
 
 //====================================================================================================================//
 // Трансформировать в массив имён
@@ -313,9 +306,6 @@
 // console.log(users[1].name); // Маша
 // console.log(users[2].name); // Петя
 
-/**
- * Not solved
- */
 //====================================================================================================================//
 // Перемешайте массив
 
@@ -332,9 +322,6 @@
 // console.log(shuffle(arr));
 // console.log(shuffle(arr));
 
-/**
- * Not solved
- */
 //====================================================================================================================//
 // Оставить уникальные элементы массива
 
@@ -375,6 +362,3 @@ usersById = {
 }
 */
 
-/**
- * Not solved
- */

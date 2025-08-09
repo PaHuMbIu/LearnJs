@@ -3,8 +3,8 @@
  * Он используется и для целых, и для дробных значений.
  */
 
-// let integer = 10;
-// let float = 3.14;
+let integer = 10;
+let float = 3.14;
 
 /**
  * ⚠️ Особенности чисел:
@@ -13,48 +13,48 @@
  * - Погрешности при работе с дробями
  */
 
-// console.log("abc" / 2);       // NaN
-// console.log(1 / 0);           // Infinity
-// console.log(0.1 + 0.2);       // 0.30000000000000004 ❌
+console.log("abc" / 2);       // NaN
+console.log(1 / 0);           // Infinity
+console.log(0.1 + 0.2);       // 0.30000000000000004 ❌
 
 /**
  * 💡 Правильное сравнение дробей:
  */
-// let sum = 0.1 + 0.2;
-// console.log(Math.abs(sum - 0.3) < 0.000001); // true ✅
+let sum = 0.1 + 0.2;
+console.log(Math.abs(sum - 0.3) < 0.000001); // true ✅
 
 /**
  * 🔍 Проверка значений:
  */
-// console.log(isNaN("abc" / 2));      // true
-// console.log(isFinite("15"));        // true
-// console.log(isFinite("abc"));       // false
+console.log(isNaN("abc" / 2));      // true
+console.log(isFinite("15"));        // true
+console.log(isFinite("abc"));       // false
 
 /**
  * 🔢 Преобразование строк в числа:
  */
-// console.log(parseInt("100px"));     // 100
-// console.log(parseFloat("12.5em"));  // 12.5
+console.log(parseInt("100px"));     // 100
+console.log(parseFloat("12.5em"));  // 12.5
 
 /**
  * 🧮 parseInt с системой счисления:
  */
-// console.log(parseInt("ff", 16));    // 255
+console.log(parseInt("ff", 16));    // 255
 
 /**
  * 🧾 Округление:
  */
-// console.log(Math.floor(3.7));       // 3 — вниз
-// console.log(Math.ceil(3.2));        // 4 — вверх
-// console.log(Math.round(3.5));       // 4 — до ближайшего
-// console.log(Math.trunc(3.9));       // 3 — просто отбрасывает дробную часть
+console.log(Math.floor(3.7));       // 3 — вниз
+console.log(Math.ceil(3.2));        // 4 — вверх
+console.log(Math.round(3.5));       // 4 — до ближайшего
+console.log(Math.trunc(3.9));       // 3 — просто отбрасывает дробную часть
 
 /**
  * 📌 toFixed(n) — округляет до n знаков после запятой, но возвращает СТРОКУ
  */
-// let n = 1.23456;
-// console.log(n.toFixed(2));          // "1.23" (строка)
-// console.log(+n.toFixed(2));         // 1.23 (число)
+let n = 1.23456;
+console.log(n.toFixed(2));          // "1.23" (строка)
+console.log(+n.toFixed(2));         // 1.23 (число)
 
 /**
  * ✅ Главное:
