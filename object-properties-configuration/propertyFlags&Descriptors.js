@@ -13,12 +13,12 @@
 
 // 🔧 Как их посмотреть?
 
-// const user = {
-//     name: "Вася"
-// };
-//
-// const descriptor = Object.getOwnPropertyDescriptor(user, "name");
-// console.log(descriptor);
+const user = {
+    name: "Вася"
+};
+
+const descriptor = Object.getOwnPropertyDescriptor(user, "name");
+console.log(descriptor);
 // 📦 Вывод:
 /**
  * {
@@ -40,35 +40,35 @@
  * ❗ Пример: делаем user.name неизменяемым
  */
 
-// const user = {};
+const user = {};
 
-// Object.defineProperty(user, "name", {
-//     value: "Аня",
-//     writable: false,
-//     enumerable: true,
-//     configurable: false
-// });
-//
-// console.log(user.name); // => Аня
-//
-// user.name = "Оля"; // Не сработает
-// console.log(user.name); // => Аня
+Object.defineProperty(user, "name", {
+    value: "Аня",
+    writable: false,
+    enumerable: true,
+    configurable: false
+});
+
+console.log(user.name); // => Аня
+
+user.name = "Оля"; // Не сработает
+console.log(user.name); // => Аня
 
 // 📚 Object.defineProperties — сразу много свойств
 
-// Object.defineProperties(user, {
-//     name: {
-//         value: "Ира",
-//         writable: false
-//     },
-//     age: {
-//         value: 30,
-//         writable: true
-//     }
-// });
+Object.defineProperties(user, {
+    name: {
+        value: "Ира",
+        writable: false
+    },
+    age: {
+        value: 30,
+        writable: true
+    }
+});
 
 // 📌 Object.getOwnPropertyDescriptors — получаем все дескрипторы сразу
-// console.log(Object.getOwnPropertyDescriptors(user));
+console.log(Object.getOwnPropertyDescriptors(user));
 
 // 🧠 Зачем вообще всё это?
 /**
