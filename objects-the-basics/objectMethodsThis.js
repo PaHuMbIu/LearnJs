@@ -2,32 +2,32 @@
  * this — это ключевое слово, которое ссылается на объект, в контексте которого была вызвана функция
  */
 // Example:
-// const obj = {
-//     a: 10,
-//     b: 20,
-//
-//     calculateSum() {
-//         return this.a + this.b // this здесь это, иными словами, сам obj, то бишь obj.a + obj.b
-//     }
-// }
-// console.log(obj.calculateSum()); // 30
+const obj = {
+    a: 10,
+    b: 20,
+
+    calculateSum() {
+        return this.a + this.b // this здесь это, иными словами, сам obj, то бишь obj.a + obj.b
+    }
+}
+console.log(obj.calculateSum()); // 30
 
 /**
  * Можно написать obj.a + obj.b, но в таком случае если объект будет перезаписан в другую переменную возникнет ошибка
  */
 // Example:
-// let obj1 = {
-//     a: 10,
-//     b: 20,
-//
-//     calculateSum() {
-//         return obj1.a + obj1.b // obj1 теперь пустой объект
-//     }
-// }
-// const newObj = obj1;
-// obj1 = {};
-// console.log(newObj.calculateSum()) // NaN
-// console.log(obj1.calculateSum()); // Uncaught TypeError: obj1.calculateSum is not a function
+let obj1 = {
+    a: 10,
+    b: 20,
+
+    calculateSum() {
+        return obj1.a + obj1.b // obj1 теперь пустой объект
+    }
+}
+const newObj = obj1;
+obj1 = {};
+console.log(newObj.calculateSum()) // NaN
+console.log(obj1.calculateSum()); // Uncaught TypeError: obj1.calculateSum is not a function
 
 //====================================================================================================================//
 /**
@@ -99,6 +99,3 @@
 //     },
 // };
 // ladder.up().up().down().showStep().down().showStep(); // 1 0
-/**
- * Not solved
- */

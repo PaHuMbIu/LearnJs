@@ -4,22 +4,22 @@
  */
 
 // Функция конструктор
-// function User(name) {
-//     this.name = name;
-//     this.isAdmin = false;
-//     /**
-//      *  Здесь создаётся объект, по сути это:
-//      *  variableName = {
-//      *      name: name,
-//      *      isAdmin: false,
-//      *  };
-//      */
-// }
-// const user = new User("Jack");
-//
-// console.log(user) // obj { name: "Jack", isAdmin: false }
-// console.log(user.name); // Jack
-// console.log(user.isAdmin); // false
+function User(name) {
+    this.name = name;
+    this.isAdmin = false;
+    /**
+     *  Здесь создаётся объект, по сути это:
+     *  variableName = {
+     *      name: name,
+     *      isAdmin: false,
+     *  };
+     */
+}
+const user = new User("Jack");
+
+console.log(user) // obj { name: "Jack", isAdmin: false }
+console.log(user.name); // Jack
+console.log(user.isAdmin); // false
 //====================================================================================================================//
 /**
  * Tasks

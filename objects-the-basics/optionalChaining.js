@@ -8,24 +8,24 @@
  */
 
 // // Проблема, которую он решает
-// let user = {};
-// console.log(user.address.street); // ❌ Ошибка! address — undefined (Ложится сервер)
-//
-// // С optional chaining
-// let user = {};
-// console.log(user.address?.street); // ✅ undefined, ошибки нет
+let user = {};
+console.log(user.address.street); // ❌ Ошибка! address — undefined (Ложится сервер)
+
+// С optional chaining
+let user = {};
+console.log(user.address?.street); // ✅ undefined, ошибки нет
 
 // 📘 Пример с методом
-// let user3 = {
-//   sayHi() { console.log("Привет!"); }
-// };
-//
-// user3.sayHi?.(); // ✅ Привет!
-// user3.nonExistent?.(); // ✅ Ничего не происходит, ошибки нет
+let user3 = {
+  sayHi() { console.log("Привет!"); }
+};
+
+user3.sayHi?.(); // ✅ Привет!
+user3.nonExistent?.(); // ✅ Ничего не происходит, ошибки нет
 
 // 📘 Пример с массивом
-// let users = null;
-// console.log(users?.[0]);   // ✅ undefined, без ошибки
+let users = null;
+console.log(users?.[0]);   // ✅ undefined, без ошибки
 
 // ⚠️ Нельзя использовать для присваивания
 // user2.address?.street = "Мира 5"; // ❌ SyntaxError
