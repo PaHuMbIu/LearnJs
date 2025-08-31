@@ -2,14 +2,14 @@
  * Метод .bind() создаёт новую функцию, у которой жёстко привязан this.
  */
 
-// function greet() {
-//     console.log(this.name);
-// }
-//
-// const user = { name: "Катя" };
-//
-// const boundGreet = greet.bind(user);
-// boundGreet(); // => Катя
+function greet() {
+  console.log(this.name);
+}
+
+const user = {name: "Катя"};
+
+const boundGreet = greet.bind(user);
+boundGreet(); // => Катя
 
 /**
  * greet.bind(user) возвращает новую функцию, где this всегда будет равен user.
@@ -21,55 +21,53 @@
  * bind — возвращает новую функцию, которую ты можешь вызвать позже.
  */
 
-// greet.call(user); // сразу вызывает
-// const fn = greet.bind(user); // возвращает функцию
-// fn(); // вызывает позже
+greet.call(user); // сразу вызывает
+const fn = greet.bind(user); // возвращает функцию
+fn(); // вызывает позже
 
 // ✅ bind нужен, когда теряется контекст this
 
-const user = {
-    name: "Ира",
-    sayHi() {
-        console.log(this.name);
-    }
+const user1 = {
+  name: "Ира",
+  sayHi() {
+    console.log(this.name);
+  }
 };
-setTimeout(user.sayHi, 1000); // ❌ ошибка: this === undefined
-const f = user.sayHi;
+setTimeout(user1.sayHi, 1000); // ❌ ошибка: this === undefined
+const f = user1.sayHi;
 f()
 
 /**
  * 🚫 Почему ошибка: при присваивании метода в другую переменную контекст теряется
  */
 
-// setTimeout(user.sayHi.bind(user), 1000); // => Ира
-
 // Потеря this в колбэках
-// const user = {
-//     name: "Оля",
-//     sayHi() {
-//         console.log(`Привет, ${ this.name }`);
-//     }
-// };
-//
-// function executeCallback(callback) {
-//     callback(); // просто вызывает функцию
-// }
-//
-// executeCallback(user.sayHi); // ❌ this теряется
-// executeCallback(user.sayHi.bind(user)) // => Привет, Оля
+const user2 = {
+  name: "Оля",
+  sayHi() {
+    console.log(`Привет, ${this.name}`);
+  }
+};
+
+function executeCallback(callback) {
+  callback(); // просто вызывает функцию
+}
+
+executeCallback(user2.sayHi); // ❌ this теряется
+executeCallback(user2.sayHi.bind(user)) // => Привет, Оля
 
 // ✅ Частичное применение аргументов (Partial Application)
 /**
  * .bind() может не только привязать this, но и часть аргументов заранее.
  */
 
-// function multiply(a, b) {
-//     return a * b;
-// }
-//
-// const double = multiply.bind(null, 2); // a = 2 уже передано
-//
-// console.log(double(5)); // => 10 (2 * 5)
+function multiply(a, b) {
+  return a * b;
+}
+
+const double = multiply.bind(null, 2); // a = 2 уже передано
+
+console.log(double(5)); // => 10 (2 * 5)
 
 /**
  * double — это новая функция с «зашитым» первым аргументом.
@@ -81,20 +79,20 @@ f()
  */
 
 // 🛠 Практика: собственный bind
-// function customBind(func, context, ...boundArgs) {
-//     return function (...args) {
-//         console.log([ ...boundArgs, ...args ])
-//         return func.apply(context, [ ...boundArgs, ...args ]);
-//     };
-// }
-//
-// function say(greeting, name) {
-//     console.log(`${ greeting }, ${ name }`);
-// }
-//
-// const sayHelloTo = customBind(say, null, "Привет");
-//
-// sayHelloTo("Маша"); // => Привет, Маша
+function customBind(func, context, ...boundArgs) {
+  return function (...args) {
+    console.log([...boundArgs, ...args])
+    return func.apply(context, [...boundArgs, ...args]);
+  };
+}
+
+function say(greeting, name) {
+  console.log(`${greeting}, ${name}`);
+}
+
+const sayHelloTo = customBind(say, null, "Привет");
+
+sayHelloTo("Маша"); // => Привет, Маша
 
 // 🧩 Итого:
 /**

@@ -12,19 +12,19 @@
  * становятся свойствами глобального объекта.
  */
 
-// var x = 10;
-// function greet() {
-//     console.log("Hello!");
-// }
-// console.log(window.x); // 10
-// window.greet();        // "Hello!"
+var x = 10;
+function greet() {
+    console.log("Hello!");
+}
+console.log(window.x); // 10
+window.greet();        // "Hello!"
 
 /**
  * let и const: Переменные, объявленные с помощью let или const, не становятся свойствами глобального объекта
  */
 
-// let y = 20;
-// console.log(window.y); // undefined
+let y = 20;
+console.log(window.y); // undefined
 
 /**
  * window — это глобальный объект браузера, который предоставляет доступ к:

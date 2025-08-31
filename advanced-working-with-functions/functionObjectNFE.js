@@ -13,33 +13,41 @@
  * Даже если функция анонимна, JavaScript пытается определить её имя из контекста:
  */
 
-// function sayHi() {
-//     console.log("Hi");
-// }
-// console.log(sayHi.name); // "sayHi"
+function sayHi() {
+  console.log("Hi");
+}
 
-// const greet = function() {};
-// console.log(greet.name); // "greet"
+console.log(sayHi.name); // "sayHi"
+
+const greet = function () {
+};
+console.log(greet.name); // "greet"
 
 // 🔢 Свойство length
-// function f1(a) {}
-// function f2(a, b) {}
-// function many(a, b, ...more) {}
+function f1(a) {
+}
 
-// console.log(f1.length); // 1
-// console.log(f2.length); // 2
-// console.log(many.length); // 2
+function f2(a, b) {
+}
+
+function many(a, b, ...more) {
+}
+
+console.log(f1.length); // 1
+console.log(f2.length); // 2
+console.log(many.length); // 2
 
 // 🧬 Функции как объекты
-// function counter() {
-//     counter.count++;
-// }
-// counter.count = 0;
+function counter() {
+  counter.count++;
+}
 
-// counter();
-// counter();
+counter.count = 0;
 
-// console.log(counter.count); // 2
+counter();
+counter();
+
+console.log(counter.count); // 2
 
 // 🔁 Именованные функциональные выражения (NFE)
 
@@ -48,10 +56,10 @@
  * что полезно для рекурсии
  */
 
-// const factorial = function f(n) {
-//     return n ? n * f(n - 1) : 1;
-// };
-// console.log(factorial(5)); // 120
+const factorial = function f(n) {
+  return n ? n * f(n - 1) : 1;
+};
+console.log(factorial(5)); // 120
 
 //====================================================================================================================//
 /**
@@ -95,9 +103,6 @@
 //
 // console.log( counter() ); // 10 (вместо 11)
 
-/**
- * Not solved
- */
 //====================================================================================================================//
 
 

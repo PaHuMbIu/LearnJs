@@ -5,16 +5,16 @@
  */
 
 // 🧠 Пример замыкания
-// function makeCounter() {
-//     let count = 0;
-//     return function() {
-//         return ++count;
-//     };
-// }
+function makeCounter() {
+  let count = 0;
+  return function () {
+    return ++count;
+  };
+}
 
-// const counter = makeCounter();
-// console.log(counter()); // 1
-// console.log(counter()); // 2
+const counter = makeCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
 
 /**
  * Здесь:
@@ -41,14 +41,14 @@
  * доступное в момент её вызова, а не в момент её создания.
  */
 
-// let name = "John";
+let name = "John";
 
-// function sayHi() {
-//     alert("Hi, " + name);
-// }
+function sayHi() {
+  console.log("Hi, " + name);
+}
 
-// name = "Pete";
-// sayHi(); // Hi, Pete
+name = "Pete";
+sayHi(); // Hi, Pete
 
 // 🛠️ Практическое применение
 
@@ -56,35 +56,35 @@
  * Замыкания позволяют создавать модули, скрывая внутренние детали реализации и предоставляя только публичный интерфейс.
  */
 
-// const counterModule = (function() {
-//     let count = 0;
-//     return {
-//         increment: function() {
-//             count++;
-//             return count;
-//         },
-//         decrement: function() {
-//             count--;
-//             return count;
-//         },
-//         getCount: function() {
-//             return count;
-//         }
-//     };
-// })();
-//
-// console.log(counterModule.increment()); // 1
-// console.log(counterModule.getCount()); // 1
+const counterModule = (function () {
+  let count = 0;
+  return {
+    increment: function () {
+      count++;
+      return count;
+    },
+    decrement: function () {
+      count--;
+      return count;
+    },
+    getCount: function () {
+      return count;
+    }
+  };
+})();
+
+console.log(counterModule.increment()); // 1
+console.log(counterModule.getCount()); // 1
 
 // Функции с сохранённым состоянием
-// function makeAdder(x) {
-//     return function(y) {
-//         return x + y;
-//     };
-// }
+function makeAdder(x) {
+  return function (y) {
+    return x + y;
+  };
+}
 
-// const add5 = makeAdder(5);
-// console.log(add5(2)); // 7
+const add5 = makeAdder(5);
+console.log(add5(2)); // 7
 
 // 🚮 Сборка мусора и замыкания
 
@@ -94,17 +94,17 @@
  * вся эта область памяти остаётся в живых.
  */
 
-// function outer() {
-//     let data = 'важные данные';
-//     return function inner() {
-//         console.log(data);
-//     };
-// }
+function outer() {
+  let data = 'важные данные';
+  return function inner() {
+    console.log(data);
+  };
+}
 
-// const closure = outer(); // closure — ссылка на inner, она сохраняет доступ к data
+const closure = outer(); // closure — ссылка на inner, она сохраняет доступ к data
 // Пока closure существует, data не удалится из памяти
 
-// closure(); // выводит: важные данные
+closure(); // выводит: важные данные
 
 // Если сделать closure = null, то ссылка пропадёт, и data тоже очистится
 
@@ -128,9 +128,6 @@
 // console.log(sum(1)(2)); // 3
 // console.log(sum(5)(-1)); // 4
 
-/**
- * Not solved
- */
 //====================================================================================================================//
 // Фильтрация с помощью функции
 

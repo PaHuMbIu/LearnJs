@@ -26,18 +26,18 @@
 
 // 🔷 Пример JSON.stringify
 let user = {
-    name: "Иван",
-    age: 25
+  name: "Иван",
+  age: 25
 };
 //
 let json = JSON.stringify(user);
 console.log(json); // '{"name":"Иван","age":25}'
 
 // 🔶 Пример JSON.parse
-let json = '{"name":"Иван","age":25}';
-let user = JSON.parse(json);
+let json1 = '{"name":"Иван","age":25}';
+let user1 = JSON.parse(json1);
 //
-console.log(user.name); // Иван
+console.log(user1.name); // Иван
 
 // ⚠️ Ограничения JSON
 

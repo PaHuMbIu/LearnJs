@@ -7,30 +7,30 @@ const user = {
 console.log(Object.keys(user)); // ["name", "age", "city"]
 
 // 🎯 Метод Object.values(obj) возвращает массив всех значений объекта obj
-const user = {
+const user1 = {
     name: "Анна",
     age: 25,
     city: "Страсбург"
 };
-console.log(Object.values(user)); // ["Анна", 25, "Страсбург"]
+console.log(Object.values(user1)); // ["Анна", 25, "Страсбург"]
 
 // 🔁 Метод Object.entries(obj) возвращает массив пар [ключ, значение] объекта obj
-const user = {
+const user2 = {
     name: "Анна",
     age: 25,
     city: "Страсбург"
 };
-console.log(Object.entries(user));
+console.log(Object.entries(user2));
 // [["name", "Анна"], ["age", 25], ["city", "Страсбург"]]
 
 // 🔄 Применение в цикле
-const user = {
+const user3 = {
     name: "Анна",
     age: 25,
     city: "Страсбург"
 };
 
-for (const [key, value] of Object.entries(user)) {
+for (const [key, value] of Object.entries(user3)) {
     console.log(`${key}: ${value}`);
 }
 // Вывод:

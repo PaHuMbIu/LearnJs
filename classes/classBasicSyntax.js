@@ -4,12 +4,13 @@
  */
 
 class User1 {
-    constructor(name) {
-        this.name = name;
-    }
-    sayHi() {
-        console.log(this.name);
-    }
+  constructor(name) {
+    this.name = name;
+  }
+
+  sayHi() {
+    console.log(this.name);
+  }
 }
 
 const user = new User1("Иван");
@@ -29,10 +30,11 @@ user.sayHi(); // Иван
  */
 
 function User(name) {
-    this.name = name;
+  this.name = name;
 }
-User.prototype.sayHi = function() {
-    console.log(this.name);
+
+User.prototype.sayHi = function () {
+  console.log(this.name);
 };
 
 /**
@@ -40,7 +42,6 @@ User.prototype.sayHi = function() {
  * Работает строго (use strict).
  * Гарантирует, что нельзя вызывать без new.
  */
-
 
 //====================================================================================================================//
 /**

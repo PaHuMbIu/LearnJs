@@ -12,8 +12,8 @@ let user = {};
 console.log(user.address.street); // ❌ Ошибка! address — undefined (Ложится сервер)
 
 // С optional chaining
-let user = {};
-console.log(user.address?.street); // ✅ undefined, ошибки нет
+let user2 = {};
+console.log(user2.address?.street); // ✅ undefined, ошибки нет
 
 // 📘 Пример с методом
 let user3 = {

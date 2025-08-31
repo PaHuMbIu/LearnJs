@@ -1,13 +1,13 @@
 // 📌 Что такое new Function?
 // Обычно мы создаём функции так:
 
-// function sayHi(name) {
-//     console.log("Привет, " + name);
-// }
+function sayHi(name) {
+    console.log("Привет, " + name);
+}
 
 // Но JavaScript позволяет создавать функции из строки с помощью конструктора Function:
 
-// const sayHi = new Function('name', 'alert("Привет, " + name);');
+const sayHi2 = new Function('name', 'alert("Привет, " + name);');
 
 /**
  * 🔹 Здесь 'name' — это имя параметра,
@@ -24,13 +24,13 @@
 
 // ⚠️ Особенности
 
-// let name = "Иван";
+let name = "Иван";
 
-// function normalFunc() {
-//     console.log(name); // работает — видит переменную снаружи
-// }
+function normalFunc() {
+    console.log(name); // работает — видит переменную снаружи
+}
 
-// let newFunc = new Function('alert(name);'); // Ошибка — name не определена
+let newFunc = new Function('alert(name);'); // Ошибка — name не определена
 
 
 

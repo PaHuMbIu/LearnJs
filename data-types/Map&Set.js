@@ -42,7 +42,7 @@ console.log(visitsCountMap.get(user)); // 123
  * То есть, одно и то же значение не может присутствовать в Set более одного раза.
  */
 
-// let set = new Set();
+let set = new Set();
 
 set.add(1);
 set.add(2);
@@ -90,9 +90,9 @@ console.log(entries);
 [["name", "Анна"], ["age", 25]]
 
 // Этот массив пар можно напрямую передать в Map:
-let map = new Map(Object.entries(obj));
-console.log(map)
-console.log(map.get("name")); // "Анна"
+let map1 = new Map(Object.entries(obj));
+console.log(map1)
+console.log(map1.get("name")); // "Анна"
 
 // 🔄 Object.fromEntries(pairs)
 
@@ -102,13 +102,13 @@ console.log(map.get("name")); // "Анна"
  * Обычно используется, чтобы превратить Map в обычный объект.
  */
 
-let map = new Map([
+let map2 = new Map([
     ["fruit", "apple"],
     ["color", "red"]
 ]);
 
-let obj = Object.fromEntries(map);
-console.log(obj);
+let obj2 = Object.fromEntries(map2);
+console.log(obj2);
 // { fruit: "apple", color: "red" }
 
 

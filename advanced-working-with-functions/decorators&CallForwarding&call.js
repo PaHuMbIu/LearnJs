@@ -7,27 +7,27 @@
 /**
  * Ты «вызываешь» функцию от имени user
  */
-// function sayHi() {
-//     console.log(this.name);
-// }
+function sayHi() {
+  console.log(this.name);
+}
 
-// const user = { name: "Анна" };
+const user = {name: "Анна"};
 
-// sayHi.call(user); // 'this' внутри sayHi будет указывать на 'user'
+sayHi.call(user); // 'this' внутри sayHi будет указывать на 'user'
 // => Анна
 
 // 🔹 apply
 /**
  * Похож на call, но аргументы передаются массивом:
  */
-// function sayHiTo(greeting, ...args) {
-//     console.log(`${greeting}, ${this.name}`);
-// }
-//
-// const user = { name: "Анна" };
-//
-// sayHiTo.apply(user, [1, 2, 43 ,4]);
-// sayHiTo.apply(user, ["Привет"]);
+function sayHiTo(greeting, ...args) {
+  console.log(`${greeting}, ${this.name}`);
+}
+
+const user1 = {name: "Анна"};
+
+sayHiTo.apply(user1, [1, 2, 43, 4]);
+sayHiTo.apply(user1, ["Привет"]);
 // => Привет, Анна
 
 // 🤔 Разница между call и apply?
@@ -43,21 +43,22 @@
  * Декоратор — это обёртка над функцией, которая добавляет ей новое поведение, не изменяя оригинальную.
  */
 
-// function say(name) {
-//     console.log(`Привет, ${name}`);
-// }
-// // Сделаем декоратор logDecorator, который будет логировать вызовы:
-//
-// function logDecorator(func) {
-//     return function(...args) {
-//         console.log(`Вызов с аргументами: ${args}`);
-//         return func.apply(this, args); // передаём 'this' и аргументы
-//     };
-// }
-//
-// const wrappedSay = logDecorator(say);
-//
-// wrappedSay("Анна"); // логирует и вызывает оригинальную функцию
+function say(name) {
+  console.log(`Привет, ${name}`);
+}
+
+// Сделаем декоратор logDecorator, который будет логировать вызовы:
+
+function logDecorator(func) {
+  return function (...args) {
+    console.log(`Вызов с аргументами: ${args}`);
+    return func.apply(this, args); // передаём 'this' и аргументы
+  };
+}
+
+const wrappedSay = logDecorator(say);
+
+wrappedSay("Анна"); // логирует и вызывает оригинальную функцию
 // Вызов с аргументами: Анна
 // Привет, Анна
 
@@ -67,30 +68,31 @@
  * Этот декоратор запоминает результаты вызовов функции, чтобы не вызывать её повторно с теми же аргументами
  */
 
-// function slow(x) {
-//     console.log(`Вычисляем для ${x}...`);
-//     return x * 2;
-// }
-// // Создаём декоратор cachingDecorator:
-//
-// function cachingDecorator(func) {
-//     const cache = new Map();
-//
-//     return function(x) {
-//         if (cache.has(x)) {
-//             return cache.get(x);
-//         }
-//
-//         const result = func.call(this, x);
-//         cache.set(x, result);
-//         return result;
-//     };
-// }
-//
-// const cachedSlow = cachingDecorator(slow);
-//
-// console.log(cachedSlow(2)); // Вычисляет, выводит 4
-// console.log(cachedSlow(2)); // Берёт из кеша, выводит 4
+function slow(x) {
+  console.log(`Вычисляем для ${x}...`);
+  return x * 2;
+}
+
+// Создаём декоратор cachingDecorator:
+
+function cachingDecorator(func) {
+  const cache = new Map();
+
+  return function (x) {
+    if (cache.has(x)) {
+      return cache.get(x);
+    }
+
+    const result = func.call(this, x);
+    cache.set(x, result);
+    return result;
+  };
+}
+
+const cachedSlow = cachingDecorator(slow);
+
+console.log(cachedSlow(2)); // Вычисляет, выводит 4
+console.log(cachedSlow(2)); // Берёт из кеша, выводит 4
 
 /**
  * ✅ Почему используем func.call(this, ...)?
@@ -98,35 +100,35 @@
  */
 
 // 🔹 Пример, где важно this
-// const worker = {
-//     someMethod() {
-//         return 5;
-//     },
-//
-//     slow(x) {
-//         console.log("Вычисление с", x);
-//         return x * this.someMethod();
-//     }
-// };
-//
-// // Если просто завернуть `worker.slow`:
-// function cachingDecorator(func) {
-//     const cache = new Map();
-//
-//     return function(x) {
-//         if (cache.has(x)) {
-//             return cache.get(x);
-//         }
-//
-//         const result = func.call(this, x); // сохраняем правильный this
-//         cache.set(x, result);
-//         return result;
-//     };
-// }
-//
-// worker.slow = cachingDecorator(worker.slow);
-//
-// console.log(worker.slow(2)); // Работает
+const worker = {
+  someMethod() {
+    return 5;
+  },
+
+  slow(x) {
+    console.log("Вычисление с", x);
+    return x * this.someMethod();
+  }
+};
+
+// Если просто завернуть `worker.slow`:
+function cachingDecorator1(func) {
+  const cache = new Map();
+
+  return function (x) {
+    if (cache.has(x)) {
+      return cache.get(x);
+    }
+
+    const result = func.call(this, x); // сохраняем правильный this
+    cache.set(x, result);
+    return result;
+  };
+}
+
+worker.slow = cachingDecorator1(worker.slow);
+
+console.log(worker.slow(2)); // Работает
 
 // 📌 Выводы
 /**
@@ -184,10 +186,6 @@
 //     console.log('call:' + args.join()); // "call:1,2", "call:4,5"
 // }
 
-/**
- * Not solved
- */
-
 //====================================================================================================================//
 // Задерживающий декоратор
 
@@ -238,10 +236,6 @@
 // Через 1000 мс после последнего вызова (в 1500мс) выведется:
 // request: c
 
-/**
- * Solved with hints
- */
-
 //====================================================================================================================//
 // Тормозящий (throttling) декоратор
 
@@ -286,7 +280,3 @@
 
 // когда 1000 мс истекли ...
 // ...выводим 3, промежуточное значение 2 было проигнорировано
-
-/**
- * Not solved
- */

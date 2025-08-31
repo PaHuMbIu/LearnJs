@@ -64,7 +64,7 @@ user.name = "";
 // "Имя слишком короткое, минимум 4 символа"
 
 // Создание аксессоров через defineProperty
-user = { name: "John", surname: "Smith" };
+user = {name: "John", surname: "Smith"};
 
 Object.defineProperty(user, 'fullName', {
   get() {
@@ -86,9 +86,11 @@ class Rectangle {
     this.width = width;
     this.height = height;
   }
+
   get area() {
     return this.width * this.height;
   }
+
   set area(value) {
     console.log("Площадь нельзя установить напрямую");
   }

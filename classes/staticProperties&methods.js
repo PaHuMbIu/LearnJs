@@ -4,8 +4,9 @@
  */
 
 class Article {
-    static publisher = "Журнал 'Код'";
+  static publisher = "Журнал 'Код'";
 }
+
 console.log(Article.publisher); // Журнал 'Код'
 
 /**
@@ -15,11 +16,11 @@ console.log(Article.publisher); // Журнал 'Код'
 
 // 🧠 Важно: отличие обычных и статических свойств
 class Article1 {
-    constructor(title) {
-        this.title = title;         // обычное свойство
-    }
+  constructor(title) {
+    this.title = title;         // обычное свойство
+  }
 
-    static category = "Новости"; // статическое свойство
+  static category = "Новости"; // статическое свойство
 }
 
 const a = new Article1("Заголовок");
@@ -30,11 +31,11 @@ console.log(Article1.category);  // Новости (работает)
 
 // 📦 Где это может пригодиться?
 class Counter {
-    static count = 0;
+  static count = 0;
 
-    constructor() {
-        Counter.count++;
-    }
+  constructor() {
+    Counter.count++;
+  }
 }
 
 new Counter();
@@ -48,20 +49,22 @@ console.log(Counter.count); // 2
  */
 
 class Animal {
-    static planet = "Земля";
+  static planet = "Земля";
 }
 
-class Dog extends Animal {}
+class Dog extends Animal {
+}
 
 console.log(Dog.planet); // Земля
 
 // ✏️ Как это работает "под капотом"?
 
 class MyClass1 {
-    static something = 123;
+  static something = 123;
 }
 
-function MyClass() {}
+function MyClass() {
+}
 
 MyClass.something = 123; // свойство вешается прямо на конструктор
 

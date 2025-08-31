@@ -12,12 +12,12 @@ console.log(lastName) // lastName
 // Теперь firstName будет "Анна", а lastName — "Иванова".
 
 // Пропуск элементов
-const [firstName, , title] = ["Юлий", "Цезарь", "Император"];
-console.log(firstName);
+const [firstName1, , title] = ["Юлий", "Цезарь", "Император"];
+console.log(firstName1);
 console.log(title);
 
 // Остаточные элементы
-const [firstName, ...rest] = ["Юлий", "Цезарь", "Император", "Рима"];
+const [firstName2, ...rest] = ["Юлий", "Цезарь", "Император", "Рима"];
 console.log(rest); // ["Цезарь", "Император", "Рима"]
 
 // Деструктуризация объектов

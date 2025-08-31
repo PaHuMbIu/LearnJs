@@ -16,7 +16,7 @@ console.log(a === b); // false — каждый Symbol уникален
 
 // 🧠 Использование в качестве ключа объекта--------------------------------------------------------------------------//
 const user = {
-    name: "Алиса"
+  name: "Алиса"
 };
 
 const uid = Symbol("id");
@@ -27,19 +27,19 @@ console.log(user.uid);         // undefined — обычный доступ по
 console.log(user[uid]);        // 123 — доступ по символу работает
 
 // 🕵️ Символы не участвуют в обычном переборе-------------------------------------------------------------------------//
-const user = {
-    name: "Алиса",
+const user2 = {
+  name: "Алиса",
 };
-const uid = Symbol("id");
-user[uid] = 123;
+const uid2 = Symbol("id");
+user2[uid2] = 123;
 
-for (let key in user) {
-    console.log(key); // Покажет только "name"
+for (let key in user2) {
+  console.log(key); // Покажет только "name"
 }
 
-console.log(Object.keys(user)); // ["name"]
-console.log(Object.getOwnPropertyNames(user)); // ["name"]
-console.log(Object.getOwnPropertySymbols(user)); // [ Symbol(id) ]
+console.log(Object.keys(user2)); // ["name"]
+console.log(Object.getOwnPropertyNames(user2)); // ["name"]
+console.log(Object.getOwnPropertySymbols(user2)); // [ Symbol(id) ]
 
 // 🌐 Глобальные символы (Symbol.for / Symbol.keyFor)-----------------------------------------------------------------//
 /**
@@ -58,41 +58,41 @@ console.log(Symbol.keyFor(local)); // undefined — не глобальный с
 
 // 1. Symbol.iterator — делает объект итерируемым
 const range = {
-    from: 1,
-    to: 3,
-    [Symbol.iterator]() {
-        return {
-            current: this.from,
-            last: this.to,
-            next() {
-                if (this.current <= this.last) {
-                    return { done: false, value: this.current++ };
-                } else {
-                    return { done: true };
-                }
-            }
-        };
-    }
+  from: 1,
+  to: 3,
+  [Symbol.iterator]() {
+    return {
+      current: this.from,
+      last: this.to,
+      next() {
+        if (this.current <= this.last) {
+          return {done: false, value: this.current++};
+        } else {
+          return {done: true};
+        }
+      }
+    };
+  }
 };
 
 for (let num of range) {
-    console.log(num); // 1, 2, 3
+  console.log(num); // 1, 2, 3
 }
 
 // 2. Symbol.toPrimitive — управление преобразованием в примитив
 const money = {
-    amount: 1500,
-    [Symbol.toPrimitive](hint) {
-        return hint === "string" ? "\uD83D\uDCB01500\u20BD" : 1500;
-    }
+  amount: 1500,
+  [Symbol.toPrimitive](hint) {
+    return hint === "string" ? "\uD83D\uDCB01500\u20BD" : 1500;
+  }
 };
 
-console.log(`${ money }`); // 💰1500₽
+console.log(`${money}`); // 💰1500₽
 console.log(money + 500); // 2000
 
 // 3. Symbol.toStringTag — кастомизация Object.prototype.toString
 const person = {
-    [Symbol.toStringTag]: "SuperUser"
+  [Symbol.toStringTag]: "SuperUser"
 };
 
 console.log(Object.prototype.toString.call(person)); // [object SuperUser]
@@ -102,9 +102,9 @@ console.log(typeof Symbol()); // "symbol"
 console.log(Symbol("test").toString()); // "Symbol(test)"
 
 try {
-    console.log("ID: " + Symbol("id")); // ❌ TypeError
+  console.log("ID: " + Symbol("id")); // ❌ TypeError
 } catch (e) {
-    console.log("Нельзя преобразовать Symbol в строку напрямую.");
+  console.log("Нельзя преобразовать Symbol в строку напрямую.");
 }
 
 // 💡 КОГДА ИСПОЛЬЗОВАТЬ SYMBOL:

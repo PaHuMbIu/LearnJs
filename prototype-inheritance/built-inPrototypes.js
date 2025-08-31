@@ -6,8 +6,8 @@
  */
 
 // 🧵 Пример со строкой
-// const str = "Привет";
-// console.log(str.toUpperCase()); // "ПРИВЕТ
+const str = "Привет";
+console.log(str.toUpperCase()); // "ПРИВЕТ
 
 /**
  * Как это работает?
@@ -19,8 +19,8 @@
  */
 
 // 📐 Цепочка наследования
-// const arr = [1, 2, 3];
-// console.log(arr.join("-")); // "1-2-3"
+const arr = [1, 2, 3];
+console.log(arr.join("-")); // "1-2-3"
 
 /**
  * Что происходит внутри?
@@ -31,21 +31,21 @@
  * А Array.prototype наследует от Object.prototype
  */
 
-// console.log(arr.__proto__ === Array.prototype);        // true
-// console.log(Array.prototype.__proto__ === Object.prototype); // true
+console.log(arr.__proto__ === Array.prototype);        // true
+console.log(Array.prototype.__proto__ === Object.prototype); // true
 
 // 🔧 Добавление своих методов
-// String.prototype.sayHi = function() {
-//     console.log("Привет, " + this);
-// };
-//
-// "Мир".sayHi(); // Привет, Мир
+String.prototype.sayHi = function () {
+  console.log("Привет, " + this);
+};
+
+"Мир".sayHi(); // Привет, Мир
 
 // 🛑 Не добавляй в Object.prototype
-// Object.prototype.test = 123;
-//
-// const obj = {};
-// console.log(obj.test); // 123 — хотя ты это не ожидал
+Object.prototype.test = 123;
+
+const obj = {};
+console.log(obj.test); // 123 — хотя ты это не ожидал
 
 //====================================================================================================================//
 /**
@@ -88,7 +88,3 @@
 //
 // f.defer(1000)(1, 2); // выведет 3 через 1 секунду.
 // f.defer(500)(3, 4) // 7 через 500мс
-
-/**
- * Solved with hints
- */

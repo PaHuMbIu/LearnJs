@@ -6,15 +6,16 @@
  */
 
 // 📦 Пример простой
-// function countdown(n) {
-//     if (n === 0) {
-//         console.log('Готово!');
-//     } else {
-//         console.log(n);
-//         countdown(n - 1);
-//     }
-// }
-// countdown(3);
+function countdown(n) {
+  if (n === 0) {
+    console.log('Готово!');
+  } else {
+    console.log(n);
+    countdown(n - 1);
+  }
+}
+
+countdown(3);
 
 // 🧠 Важные части рекурсии
 /**
@@ -29,11 +30,11 @@
  */
 
 // 🧮 Более серьёзный пример — факториал
-// function factorial(n) {
-//     if (n === 1) return 1;
-//     return n * factorial(n - 1);
-// }
-// console.log(factorial(5)); // 120
+function factorial(n) {
+    if (n === 1) return 1;
+    return n * factorial(n - 1);
+}
+console.log(factorial(5)); // 120
 
 /**
  * factorial(5)
@@ -98,10 +99,6 @@
 // console.log(fib(7)); // 13
 // console.log(fib(77)); // 5527939700884757
 
-
-/**
- * Not solved
- */
 //====================================================================================================================//
 // Вывод односвязного списка
 
@@ -136,15 +133,12 @@
 //     let tmp = list;
 //
 //     while (tmp) {
-//         alert(tmp.value);
+//         console.log(tmp.value);
 //         tmp = tmp.next;
 //     }
 // };
 // console.log(printList(list)); // 1 2 3 4
 
-/**
- * Not solved
- */
 //====================================================================================================================//
 // Вывод односвязного списка в обратном порядке
 

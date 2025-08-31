@@ -9,22 +9,22 @@
 
 // 📦 Простой пример
 
-// let animal = {
-//     eats: true,
-//     walk() {
-//         console.log("Животное идёт");
-//     }
-// };
-//
-// let rabbit = {
-//     jumps: true
-// };
-//
-// rabbit.__proto__ = animal; // Устанавливаем animal как прототип для rabbit
-//
-// console.log(rabbit.eats); // true (наследовано от animal)
-// rabbit.walk();            // "Животное идёт" (взято из animal)
-// console.log(rabbit.jumps); // true (своё свойство)
+let animal = {
+  eats: true,
+  walk() {
+    console.log("Животное идёт");
+  }
+};
+
+let rabbit = {
+  jumps: true
+};
+
+rabbit.__proto__ = animal; // Устанавливаем animal как прототип для rabbit
+
+console.log(rabbit.eats); // true (наследовано от animal)
+rabbit.walk();            // "Животное идёт" (взято из animal)
+console.log(rabbit.jumps); // true (своё свойство)
 // 🔧 rabbit.__proto__ = animal — так мы говорим: "rabbit наследует от animal"
 
 // 🔁 Как это работает?
@@ -39,78 +39,78 @@
  */
 
 // ⚠️ Важно: цепочка прототипов
-// let animal = {
-//     eats: true
-// };
-//
-// let rabbit = {
-//     jumps: true,
-//     __proto__: animal
-// };
-//
-// let longEar = {
-//     earLength: 10,
-//     __proto__: rabbit
-// };
-//
-// console.log(longEar.eats); // true (нашлось через rabbit → animal)
-// console.log(longEar.jumps); // true (нашлось у rabbit)
-// console.log(longEar.earLength); // 10 (своё)
+let animal1 = {
+  eats: true
+};
+
+let rabbit1 = {
+  jumps: true,
+  __proto__: animal1
+};
+
+let longEar = {
+  earLength: 10,
+  __proto__: rabbit1
+};
+
+console.log(longEar.eats); // true (нашлось через rabbit → animal)
+console.log(longEar.jumps); // true (нашлось у rabbit)
+console.log(longEar.earLength); // 10 (своё)
 
 // 🔄 Перезапись метода
-// let animal = {
-//     walk() {
-//         console.log("Животное идёт");
-//     }
-// };
-//
-// let rabbit = {
-//     __proto__: animal,
-//     walk() {
-//         console.log("Кролик скачет");
-//     }
-// };
-//
-// rabbit.walk(); // "Кролик скачет"
+let animal2 = {
+  walk() {
+    console.log("Животное идёт");
+  }
+};
+
+let rabbit2 = {
+  __proto__: animal2,
+  walk() {
+    console.log("Кролик скачет");
+  }
+};
+
+rabbit2.walk(); // "Кролик скачет"
 
 // 🧰 Использование Object.create
 /**
  * Вместо __proto__, лучше использовать Object.create, так как это современный и безопасный способ:
  */
 
-// let animal = {
-//     eats: true
-// };
-//
-// let rabbit = Object.create(animal);
-//
-// rabbit.jumps = true;
-//
-// console.log(rabbit.eats);  // true (наследует от animal)
-// console.log(rabbit.jumps); // true (своё свойство)
+let animal3 = {
+  eats: true
+};
+
+let rabbit3 = Object.create(animal3);
+
+rabbit3.jumps = true;
+
+console.log(rabbit3.eats);  // true (наследует от animal)
+console.log(rabbit3.jumps); // true (своё свойство)
 
 /**
  *  Object.create(animal) — создаёт объект, у которого прототип — это animal.
  */
 
 // 🔍 Проверка свойств
-// let rabbit = Object.create(animal);
-// rabbit.jumps = true;
-//
-// console.log(rabbit.hasOwnProperty('jumps')); // true
-// console.log(rabbit.hasOwnProperty('eats'));  // false (наследовано)
+let rabbit4 = Object.create(animal);
+rabbit4.jumps = true;
+
+console.log(rabbit4.hasOwnProperty('jumps')); // true
+console.log(rabbit4.hasOwnProperty('eats'));  // false (наследовано)
 
 // 🧬 Наследование методов
-// let user = {
-//     sayHi() {
-//         console.log(`Привет, я ${this.name}`);
-//     }
-// };
-//
-// let admin = Object.create(user);
-// admin.name = "Админ";
-//
-// admin.sayHi(); // Привет, я Админ
+let user = {
+  sayHi() {
+    console.log(`Привет, я ${this.name}`);
+  }
+};
+
+let admin = Object.create(user);
+admin.name = "Админ";
+
+admin.sayHi(); // Привет, я Админ
 
 /**
  * this всегда указывает на тот объект, через который вызван метод, даже если сам метод в прототипе.

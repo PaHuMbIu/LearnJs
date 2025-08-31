@@ -13,10 +13,10 @@
  * Это означает, что они доступны за пределами блока, в котором были объявлены.
  */
 
-// if (true) { // - блок
-//     var test = true;
-// }
-// console.log(test); // true
+if (true) { // - блок
+    var test = true;
+}
+console.log(test); // true
 
 /**
  * 2. Всплытие (Hoisting)
@@ -24,18 +24,18 @@
  * Однако их инициализация остаётся на месте.
  */
 
-// console.log(a); // undefined
-// var a = 5;
+console.log(a); // undefined
+var a = 5;
 // Интерпретатор JavaScript воспринимает этот код так:
-// var a;
-// alert(a); // undefined
-// a = 5;
+var a;
+console.log(a); // undefined
+a = 5;
 
 /**
  * 3. Повторное объявление переменных
  * С помощью var можно повторно объявлять одну и ту же переменную в пределах одной области видимости без ошибок
  */
 
-// var a = 1;
-// var a = 2;
-// console.log(a); // 2
+var a = 1;
+var a = 2;
+console.log(a); // 2

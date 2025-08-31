@@ -11,16 +11,16 @@ const now = new Date();
 console.log(now); // Текущие дата и время
 
 // По таймстампу (миллисекунды с 1 января 1970 UTC):
-let date = new Date(0); // 01.01.1970 UTC
+let date1 = new Date(0); // 01.01.1970 UTC
 let datePlusOneDay = new Date(24 * 3600 * 1000); // 02.01.1970 UTC
 
 // Из строки:
-const date = new Date("2025-05-23");
-console.log(date);
+const date2 = new Date("2025-05-23");
+console.log(date2);
 
 // С указанием компонентов:
-const date = new Date(2025, 4, 23, 10, 30); // 23 мая 2025, 10:30
-console.log(date);
+const date3 = new Date(2025, 4, 23, 10, 30); // 23 мая 2025, 10:30
+console.log(date3);
 
 /**
  * месяцы нумеруются с 0 (январь) до 11 (декабрь).
@@ -62,11 +62,11 @@ console.log(date);
  * setMilliseconds(ms)
  */
 // Пример:
-const date = new Date();
-date.setFullYear(2025);
-date.setMonth(4); // Май
-date.setDate(23);
-console.log(date);
+const date4 = new Date();
+date4.setFullYear(2025);
+date4.setMonth(4); // Май
+date4.setDate(23);
+console.log(date4);
 
 // 🧮 Преобразование и форматирование
 /**
@@ -83,10 +83,10 @@ console.log(date);
  * toLocaleString() — строка с датой и временем в локальном формате
  */
 // Пример:
-const date = new Date();
-console.log(date.toDateString()); // "Fri May 23 2025"
-console.log(date.toTimeString()); // "10:30:00 GMT+0200"
-console.log(date.toISOString());  // "2025-05-23T08:30:00.000Z"
+const date5 = new Date();
+console.log(date5.toDateString()); // "Fri May 23 2025"
+console.log(date5.toTimeString()); // "10:30:00 GMT+0200"
+console.log(date5.toISOString());  // "2025-05-23T08:30:00.000Z"
 
 // 🧠 Дополнительные возможности
 /**
@@ -98,12 +98,12 @@ console.log(date.toISOString());  // "2025-05-23T08:30:00.000Z"
  * Сравнение дат: Объекты Date можно сравнивать с помощью операторов сравнения.
  */
 
-const date = new Date(2025, 4, 33); // 2 июня 2025
-console.log(date);
+const date6 = new Date(2025, 4, 33); // 2 июня 2025
+console.log(date6);
 
-const date1 = new Date(2025, 4, 23);
-const date2 = new Date(2025, 4, 24);
-console.log(date1 < date2); // true
+const date7 = new Date(2025, 4, 23);
+const date8 = new Date(2025, 4, 24);
+console.log(date7 < date8); // true
 
 //====================================================================================================================//
 /**

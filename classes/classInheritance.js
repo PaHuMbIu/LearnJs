@@ -5,19 +5,19 @@
  */
 
 class Animal {
-    constructor(name) {
-        this.name = name;
-    }
+  constructor(name) {
+    this.name = name;
+  }
 
-    speak() {
-        console.log(`${this.name} издаёт звук.`);
-    }
+  speak() {
+    console.log(`${this.name} издаёт звук.`);
+  }
 }
 
 class Dog extends Animal {
-    bark() {
-        console.log(`${this.name} лает.`);
-    }
+  bark() {
+    console.log(`${this.name} лает.`);
+  }
 }
 
 const dog = new Dog("Шарик");
@@ -30,27 +30,25 @@ dog.bark();  // Шарик лает.
  */
 
 class Animal1 {
-    constructor(name) {
-        this.name = name;
-    }
+  constructor(name) {
+    this.name = name;
+  }
 }
 
 class Rabbit extends Animal1 {
-    constructor(name, color) {
-        super(name); // вызывает родительский constructor
-        this.color = color;
-    }
+  constructor(name, color) {
+    super(name); // вызывает родительский constructor
+    this.color = color;
+  }
 }
 
 class A {
-    constructor() {
-        this.sayHi = function() {
-            console.log('Привет от A');
-        };
-    }
+  constructor() {
+    this.sayHi = function () {
+      console.log('Привет от A');
+    };
+  }
 }
-
-
 
 const rabbit = new Rabbit("Кролик", "белый");
 console.log(rabbit.name);  // Кролик
@@ -62,21 +60,21 @@ console.log(rabbit.color); // белый
  */
 
 class Animal2 {
-    constructor(name) {
-        this.name = name;
-    };
+  constructor(name) {
+    this.name = name;
+  };
 
-    speak() {
-        console.log(`${this.name} молчит...`);
-    }
+  speak() {
+    console.log(`${this.name} молчит...`);
+  }
 }
 
 class Cat extends Animal2 {
-    speak() {
-        super.speak(); // вызов метода родителя
-        console.log(`${this.name} мяукает.`);
-        // Поведение, словно в здесь 2 console.log, молчит и мяукает
-    }
+  speak() {
+    super.speak(); // вызов метода родителя
+    console.log(`${this.name} мяукает.`);
+    // Поведение, словно в здесь 2 console.log, молчит и мяукает
+  }
 }
 
 const cat = new Cat("Мурка");
@@ -93,17 +91,17 @@ cat.speak();
  *  new Child(...) → вызывает constructor родителя → потом constructor потомка
  */
 
-class A {
-    method() {
-        console.log("A");
-    }
+class C {
+  method() {
+    console.log("A");
+  }
 }
 
-class B extends A {
-    method() {
-        super.method(); // вызывает метод из A
-        console.log("B");
-    }
+class B extends C {
+  method() {
+    super.method(); // вызывает метод из A
+    console.log("B");
+  }
 }
 
 new B().method();
